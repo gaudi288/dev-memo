@@ -1,3 +1,8 @@
+setup shell command
+used on aws t4g.nano 512MB mem & 8GB storage VM
+
+this vm is mail forwarding with thunderbird software for mercari nitofication mail on linux.
+
     1  ping 8.8.8.8
     2  sudo amazon-linux-extras install mate-desktop1.x
     3  sudo bash -c 'echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop'
