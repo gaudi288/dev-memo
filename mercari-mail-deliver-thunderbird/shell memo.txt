@@ -1,0 +1,19 @@
+    1  ping 8.8.8.8
+    2  sudo amazon-linux-extras install mate-desktop1.x
+    3  sudo bash -c 'echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop'
+    4  sudo yum install tigervnc-server -y
+    5  vncpasswd
+	# Would you like to enter a view-only password (y/n)? n
+    6  sudo mkdir /etc/tigervnc
+    7  sudo bash -c 'echo localhost > /etc/tigervnc/vncserver-config-mandatory'
+    8  sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@.service
+    9  sudo sed -i 's/<USER>/ec2-user/' /etc/systemd/system/vncserver@.service
+   10  sudo systemctl daemon-reload
+   11  sudo systemctl enable vncserver@:1
+   12  sudo systemctl start vncserver@:1
+   23  sudo dd if=/dev/zero of=/swapfile bs=128M count=8
+   24  sudo chmod 600 /swapfile
+   25  sudo mkswap /swapfile
+   26  sudo swapon /swapfile
+   27  sudo swapon -s
+       sudo yum install thunderbird -y
